@@ -1,0 +1,75 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+{% block pageTitle %}
+Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+<a style="float:right;padding-top:10px" href="select-behaviours">Alt</a>
+{% endblock %}
+
+{% block content %}
+<form class="form" action="selection-criteria-summary" method="post">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <h1 class="govuk-heading-xl">
+      Select your criteria
+    </h1>
+
+{% if data['criteria-you-want'].length > 0 %}
+{% for items in data['criteria-you-want'] | slice(1) %}
+{% for item in items %}
+{% if item == "Behaviours" %}
+{% include 'behave.html' %}
+{% elif item == "Experience" %}
+{% include 'experience.html' %}
+{% elif item == "Skills" %}
+{% include 'skills.html' %}
+{% elif item == "Strengths" %}
+{% include 'strengths.html' %}
+
+{% endif %}
+{% endfor%}{% endfor%}
+
+
+
+{% endif %}
+
+
+
+
+
+
+
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+
+
+
+
+      </div>
+</form>
+
+
+
+    <a href="#" onclick="checkRadio()">Link</a>
+
+    <script>
+      function checkRadio() {
+        var radios = document.getElementsByTagName('input');
+        for (i = 0; i < radios.length; i++) {
+          if (radios[i].type == 'checkbox' && radios[i].checked) {
+            var dest = radios[i].name+","+radios[i].value
+            console.log(dest)
+          }
+        }
+      }
+    </script>
+      {% endblock %}

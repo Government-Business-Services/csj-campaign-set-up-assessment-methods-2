@@ -1,0 +1,68 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% block pageTitle %}
+What essential criteria do you want – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-xl">
+        What essential criteria do you want?
+      </h1>
+      <form class="form" action="select-your-criteria" method="post">
+
+        <p class="govuk-body-m">We recommend that you think of your essential criteria as different aspects that your ideal candidate should bring to be successful in the role (we follow the Civil Service Success Profile framework).</p>
+
+        {% set choices = [
+        ['Behaviours','The actions and activities that people do which result in effective performance in a job'],
+        ['Experience','The knowledge or mastery of an activity or subject gained through involvement in or exposure to it'],
+        ['Skills','The demonstration of specific professional skills, knowledge or qualifications'],
+        ['Strengths','The things we do regularly, do well and that motivate us'] ] %}
+
+
+        {% for choice, description in choices %}
+
+        {{ govukCheckboxes({
+          name: "criteria-you-want",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+          {
+            checked: checked('criteria-you-want',choice),
+            value: choice,
+            text: choice,
+            hint: {
+              text: description
+            }
+          }
+          ]
+        }) }}
+
+        {%endfor%}
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+          </form>
+      </div>
+    </div>
+
+
+  {% endblock %}

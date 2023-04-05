@@ -1,0 +1,231 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Select methods for interview – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+
+{% set interviewMethods = ['Remote', 'In-person', 'Asynchronous (not live)'] %}
+<form class="form" action="grand-finale-summary" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-xl">
+        Select methods for Interview
+      </h1>
+      <p class="govuk-body-m">At interview, you want to ask candidates questions so they can demonstrate their skills and behaviours.</p>
+      <p class="govuk-body-m">Typically, we recommend you use a CV and personal statement to assess experience and skills.
+        Further, you can use specialised methods like portfolio or online tests for more specialised skills.</p>
+        <h2 class="govuk-heading-l">Your criteria</h2>
+
+        {% set arrrgh = [] %}
+
+
+
+        {% if data['behaviours-crit2stage2'].length > 0 %}
+        {% elif data['behaviours-crit3stage3'].length > 0  %}
+        {% elif data['behaviours-crit4stage4'].length > 0  %}
+        {% elif data['behaviours-crit5stage5'].length > 0  %}
+        {% elif data['criteria-exp1stage'].length > 0  %}
+        {% elif data['criteria-exp2stage'].length > 0  %}
+        {% elif data['criteria-exp3stage'].length > 0  %}
+        {% elif data['criteria-skills1stage'].length > 0  %}
+        {% elif data['criteria-skills2stage'].length > 0  %}
+        {% elif data['criteria-skills3stage'].length > 0  %}
+        {% elif data['strength-crit1stage'].length > 0  %}
+        {% elif data['strength-crit2stage'].length > 0  %}
+        {% elif data['strength-crit3stage'].length > 0  %}
+        {% elif data['strength-crit4stage'].length > 0  %}
+        {% elif data['strength-crit5stage'].length > 0  %}
+        {% elif data['strength-crit6stage'].length > 0  %}
+        {% elif data['strength-crit7stage'].length > 0  %}
+        {% elif data['strength-crit8stage'].length > 0  %}
+        {% elif data['criteria-behaviours'].length > 0 %}
+
+        {% elif data['criteria-experience-1'].length > 0 or data['behaviours-crit1stage1'].length > 0 %}
+
+        {% elif data['criteria-strength'].length > 0 or data['criteria-skills-1'].length > 0 %}
+
+
+        {% elif data['behaviours-crit1stage1'].first  == "i" or data['behaviours-crit1stage1'].first  == "b" %}
+        {% set arrrgh = (arrrgh.push(data['criteria-behaviours'][0]), arrrgh) %}
+
+        {% elif data['behaviours-crit2stage2'].first  == "i" or data['behaviours-crit2stage2'].first  == "b" %}
+        {% set arrrgh = (arrrgh.push(data['criteria-behaviours'][1]), arrrgh) %}
+
+        {% elif data['behaviours-crit3stage3'].first  == "i" or data['behaviours-crit3stage3'].first  == "b" %}
+        {% set arrrgh = (arrrgh.push(data['criteria-behaviours'][2]), arrrgh) %}
+
+
+        {% elif data['behaviours-crit4stage4'].first == "i" or data['behaviours-crit4stage4'].first  == "b" %}
+        {% set arrrgh = (arrrgh.push(data['criteria-behaviours'][3]), arrrgh) %}
+
+        {% elif data['behaviours-crit5stage5'].first  == "i" or data['behaviours-crit5stage5'].first  == "b" %}
+        {% set arrrgh = (arrrgh.push(data['criteria-behaviours'][4]), arrrgh) %}
+
+
+        {% elif data['criteria-exp1stage'].first  == "i" or data['criteria-exp1stage'].first  == "b" %}
+        {% set arrrgh = (arrrgh.push(data['criteria-experience-1'][0]), arrrgh) %}
+
+
+        {% elif data['criteria-exp2stage'].first  == "i" or data['criteria-exp2stage'].first  == "b" %}
+        {% set arrrgh = (arrrgh.push(data['criteria-experience-2'][1]), arrrgh) %}
+
+
+        {% elif data['criteria-exp3stage'].first  == "i" or data['criteria-exp3stage'].first  == "b" %}
+        {% set arrrgh = (arrrgh.push(data['criteria-experience-3'][2]), arrrgh) %}
+
+
+        {% elif data['criteria-skills1stage'].first  == "i" or data['criteria-skills1stage'].first  == "b" %}
+        {% set arrrgh = (arrrgh.push(data['criteria-skills-1'][0]), arrrgh) %}
+
+
+        {% elif data['criteria-skills2stage'].first  == "i" or data['criteria-skills2stage'].first  == "b" %}
+        {% set arrrgh = (arrrgh.push(data['criteria-skills-2'][1]), arrrgh) %}
+
+
+        {% elif data['criteria-skills3stage'].first  == "i" or data['criteria-skills3stage'].first  == "b" %}
+        {% set arrrgh = (arrrgh.push(data['criteria-skills-3'][2]), arrrgh) %}
+
+
+
+        {% elif data['strength-crit1stage'].first  == "i" or data['strength-crit1stage'].first  == "b" %}
+        {% set arrrgh = (arrrgh.push(data['criteria-strength'][0]), arrrgh) %}
+
+
+        {% elif data['strength-crit2stage'].first  == "i" or data['strength-crit2stage'].first  == "b" %}
+        {% set arrrgh = (arrrgh.push(data['criteria-strength'][1]), arrrgh) %}
+
+
+        {% elif data['strength-crit3stage'].first  == "i" or data['strength-crit3stage'].first  == "b" %}
+        {% set arrrgh = (arrrgh.push(data['criteria-strength'][2]), arrrgh) %}
+
+
+        {% elif data['strength-crit4stage'].first  == "i" or data['strength-crit4stage'].first  == "b" %}
+        {% set arrrgh = (arrrgh.push(data['criteria-strength'][3]), arrrgh) %}
+
+
+        {% elif data['strength-crit5stage'].first  == "i" or data['strength-crit5stage'].first  == "b" %}
+        {% set arrrgh = (arrrgh.push(data['criteria-strength'][4]), arrrgh) %}
+
+
+        {% elif data['strength-crit6stage'].first  == "i" or data['strength-crit6stage'].first  == "b" %}
+        {% set arrrgh = (arrrgh.push(data['criteria-strength'][5]), arrrgh) %}
+
+
+        {% elif data['strength-crit7stage'].first  == "i" or data['strength-crit7stage'].first  == "b" %}
+        {% set arrrgh = (arrrgh.push(data['criteria-strength'][6]), arrrgh) %}
+
+
+        {% elif data['strength-crit8stage'].first  == "i" or data['strength-crit8stage'].first  == "b" %}
+        {% set arrrgh = (arrrgh.push(data['criteria-strength'][7]), arrrgh) %}
+
+
+
+
+{% endif %}
+
+        <div class="govuk-!-margin-bottom-3 govuk-!-margin-top-3" style="border-top:1px solid grey;padding-top:20px">
+
+          {{ data['criteria-strength']}}
+
+
+          <h2 class="govuk-heading-l">How would you like to interview?</h2>
+
+          {% for items in interviewMethods | slice(1)%}
+          {% for item in items %}
+
+          {{ govukCheckboxes({
+            name: "interviewMeth",
+            id: "interviewMeth",
+            fieldset: {
+              legend: {
+                text: "",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+            {
+              checked: checked('interviewMeth',item),
+              value: item,
+              text: item
+            }
+            ]
+          }) }} {% endfor %}{% endfor %}
+        </div>
+
+        <div class="govuk-!-margin-bottom-3 govuk-!-margin-top-3" style="border-top:1px solid grey;padding-top:20px">
+          <h2 class="govuk-heading-l">Add additional stages</h2>
+          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+          {{ govukRadios({
+            name: "monoOrPolyInterviews",
+            id: "monoOrPolyInterviews",
+            fieldset: {
+              legend: {
+                text: "",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+            {
+              value: "one-interview",
+              checked: checked('monoOrPolyInterviews','One interview stage'),
+              text: "I want just one interview stage"
+            },
+            {
+              value: "multiple-interviews",
+              checked: checked('monoOrPolyInterviews','Multiple interview stages'),
+              text: "I want to set-up multiple interview stages"
+            }
+            ]
+          }) }}
+
+
+        </div>
+
+
+
+
+{% set arrrgh = (arrrgh.push(data['criteria-strength'][7]), arrrgh) %}
+{% set arrrgh = (arrrgh.push(data['behaviours-crit1stage1']), arrrgh) %}
+
+
+
+
+    {{ govukButton({
+      classes: "govuk-!-margin-top-9",
+      text: "Continue"
+    }) }}
+</div>
+</div>
+
+
+  </form>
+
+<a href="#" onclick="checkRadio()">Link</a>
+
+  <script>
+    function checkRadio() {
+      var radios = document.getElementsByTagName('input');
+      for (i = 0; i < radios.length; i++) {
+        if (radios[i].type == 'radio' && radios[i].checked) {
+          var dest = radios[i].name+","+radios[i].value
+          console.log(dest)
+        }
+      }
+    }
+  </script>
+  {% endblock %}

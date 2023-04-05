@@ -1,0 +1,296 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Select methods for sift – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+<form class="form" action="select-methods-interview" method="post">
+
+
+
+
+      <h1 class="govuk-heading-xl">
+        Select methods for Sift
+      </h1>
+      <p class="govuk-body-m">At sift, you want to shortlist the best candidates based on their skills and experience.</p>
+
+      {% set siftMethods = ['CV', 'Personal statement', 'Online tests', 'Portfolio'] %}
+
+
+
+      {% set behavioursCritSiftArr = [] %}
+      {% if (data['behaviours-crit1stage'].length > 0) and (data['behaviours-crit1stage'] === "sift") or (data['behaviours-crit1stage'].length > 0) and (data['behaviours-crit1stage'] === "both") %}
+      {% set behavioursCritSiftArr = data['criteria-behaviours'] %}
+      {% else %}
+      {% endif %}
+
+      {% if (data['behaviours-crit2stage'].length > 0 and data['behaviours-crit2stage'] === "sift") or (data['behaviours-crit2stage'].length > 0) and (data['behaviours-crit2stage'] === "both") %}
+      {% set behavioursCritSiftArr = data['criteria-behaviours'] %}
+      {% else %}
+      {% endif %}
+
+      {% if (data['behaviours-crit3stage'].length > 0 and data['behaviours-crit3stage'] === "sift") or (data['behaviours-crit3stage'].length > 0 and data['behaviours-crit3stage'] === "both") %}
+      {% set behavioursCritSiftArr = data['criteria-behaviours'] %}
+      {% else %}
+      {% endif %}
+
+      {% if (data['behaviours-crit4stage'].length > 0) and (data['behaviours-crit4stage'] === "sift") or (data['behaviours-crit4stage'].length > 0) and (data['behaviours-crit4stage'] === "both") %}
+      {% set behavioursCritSiftArr = data['criteria-behaviours'] %}
+      {% else %}
+      {% endif %}
+
+      {% if (data['behaviours-crit5stage'].length > 0 and data['behaviours-crit5stage'] === "sift") or (data['behaviours-crit5stage'].length > 0) and (data['behaviours-crit5stage'] === "both") %}
+      {% set behavioursCritSiftArr = data['criteria-behaviours'] %}
+      {% else %}
+      {% endif %}
+
+      {% if (data['behaviours-crit6stage'].length > 0) and (data['behaviours-crit6stage'] === "sift") or (data['behaviours-crit6stage'].length > 0) and (data['behaviours-crit6stage'] === "both") %}
+      {% set behavioursCritSiftArr = data['criteria-behaviours']%}
+      {% else %}
+      {% endif %}
+
+      {% if (data['behaviours-crit7stage'].length > 0) and (data['behaviours-crit7stage'] === "sift") or (data['behaviours-crit7stage'].length > 0) and (data['behaviours-crit7stage'] === "both") %}
+      {% set behavioursCritSiftArr = data['criteria-behaviours'] %}
+      {% else %}
+      {% endif %}
+
+      {% if (data['behaviours-crit8stage'].length > 0) and (data['behaviours-crit8stage'] === "sift") or (data['behaviours-crit8stage'].length > 0) and (data['behaviours-crit8stage'] === "both") %}
+      {% set behavioursCritSiftArr = data['criteria-behaviours'] %}
+      {% else %}
+      {% endif %}
+
+
+      {% set criteriaExpSiftArr = [] %}
+
+      {% if (data['criteria-exp1stage'].length > 0) and (data['criteria-exp1stage'] === "sift") or (data['criteria-exp1stage'].length > 0)  and (data['criteria-exp1stage'] === "both") %}
+      {% set criteriaExpSiftArr = (criteriaExpSiftArr.push(data['criteria-exp-1']), criteriaExpSiftArr) %}
+      {% else %}
+      {% endif %}
+
+      {% if (data['criteria-exp2stage'].length > 0) and (data['criteria-exp2stage'] === "sift") or (data['criteria-exp2stage'].length > 0) and (data['criteria-exp2stage'] === "both") %}
+      {% set criteriaExpSiftArr = (criteriaExpSiftArr.push(data['criteria-exp-2']), criteriaExpSiftArr) %}
+      {% else %}
+      {% endif %}
+
+      {% if (data['criteria-exp3stage'].length > 0) and (data['criteria-exp3stage'] === "sift") or (data['criteria-exp3stage'].length > 0) and (data['criteria-exp3stage'] === "both") %}
+      {% set criteriaExpSiftArr = (criteriaExpSiftArr.push(data['criteria-exp-3']), criteriaExpSiftArr) %}
+      {% else %}
+      {% endif %}
+
+      <p class="govuk-body-m">Typically, we recommend you use a CV and personal statement to assess experience and skills.
+        Further, you can use specialised methods like portfolio or online tests for more specialised skills.</p>
+
+
+      <h2 class="govuk-heading-l">Your sift criteria</h2>
+
+
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-9" style="padding-bottom:20px;">Behaviours</h2>
+
+      {% for acts in data['criteria-behaviours'] |slice(1) %}
+
+      {% for act in acts %}
+
+      <h3 class="govuk-heading-m" style="padding-bottom:20px;border-bottom:1px solid grey">{{loop.index}}. {{ act }}</h3>
+
+
+
+
+    {% for ahems in siftMethods | slice(1) %}
+    {% for aha in ahems %}
+
+    {{ govukCheckboxes({
+      name: "selectMethods"+loop.index,
+      id: "selectMethods"+loop.index,
+      fieldset: {
+        legend: {
+          text: "",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [
+      {
+        checked: checked('selectMethods'+loop.index,aha),
+        value: aha,
+        text: aha
+      }
+      ]
+    }) }}
+    {% endfor %}{% endfor %}{% endfor %}{% endfor %}
+
+
+
+
+
+
+      {% for eons in criteriaExpSiftArr | slice(1) %}
+      {% for eon in eons %}
+
+      <span class="govuk-caption-m">Experience</span>
+      <h3 class="govuk-heading-m" style="padding-bottom:20px;border-bottom:1px solid grey">{{ eon }}</h3>
+
+
+
+
+    {% for choices in siftMethods | slice(1) %}
+    {% for choice in choices %}
+
+    {{ govukCheckboxes({
+      name: "selectMethods"+loop.index+"Sift",
+      id: "selectMethods"+loop.index+"Sift",
+      fieldset: {
+        legend: {
+          text: "",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [
+      {
+        checked: checked("selectMethods"+loop.index+"Sift",choice),
+        value: choice,
+        text: choice
+      }
+      ]
+    }) }}
+    {% endfor %}{% endfor %}{% endfor %}{% endfor %}
+
+
+
+    {% for ons in criteriaExpSiftArr | slice(1) %}
+    {% for on in ons %}
+
+    <span class="govuk-caption-m">Skills</span>
+    <h3 class="govuk-heading-m" style="padding-bottom:20px;border-bottom:1px solid grey">{{ on }}</h3>
+
+
+
+
+  {% for thigs in siftMethods | slice(1) %}
+  {% for thig in thigs %}
+
+  {{ govukCheckboxes({
+    name: "skillsMethods"+[loop.index]+"sift",
+    id: "skillsMethods"+[loop.index]+"sift",
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [
+    {
+      checked: checked("skillsMethods"+[loop.index]+"sift",thig),
+      value: thig,
+      text: thig
+    }
+    ]
+  }) }}
+  {% endfor %}{% endfor %}{% endfor %}{% endfor %}
+
+
+
+      {% for ontes in criteriaExpSiftArr | slice(1) %}
+      {% for on in ontes %}
+
+      <span class="govuk-caption-m">Strengths</span>
+      <h3 class="govuk-heading-m" style="padding-bottom:20px;border-bottom:1px solid grey">{{ on }}</h3>
+
+
+
+
+    {% for twigs in siftMethods | slice(1) %}
+    {% for twig in twigs %}
+
+    {{ govukCheckboxes({
+      name: "strSelectMethods"+[loop.index]+"sift",
+      id: "strSelectMethods"+[loop.index]+"sift",
+      fieldset: {
+        legend: {
+          text: "",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [
+      {
+        checked: checked("strSelectMethods"+[loop.index]+"sift",twig),
+        value: twig,
+        text: twig
+      }
+      ]
+    }) }}
+    {% endfor %}{% endfor %}{% endfor %}{% endfor %}
+
+
+    {{ govukButton({
+      text: "Continue",
+      href: "select-methods-interview"
+    }) }}
+
+
+
+<div class="govuk-!-margin-bottom-3 govuk-!-margin-top-3" style="background:white;border:1px solid grey;border-radius:8px;padding:30px">
+<h2 class="govuk-heading-l">Add additional stages to Sift?</h2>
+      <p class="govuk-body-m">You can choose for candidates to complete these all in one go, or break it down into stages.</p>
+<p class="govuk-body-m">Stages may help you further reduce your list of the best candidates before you have to manually assess them.</p>
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+
+  name: "staged-or-onego",
+  id: "staged-or-onego",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "onego",
+      checked: checked('staged-or-onego','All in one go'),
+      text: "I want my candidates to complete all these in one go",
+      condititonal: {
+        href: "select-methods-interview"
+      }
+    },
+    {
+      value: "staged",
+      checked: checked('staged-or-onego','Set-up stages'),
+      text: "I want to set-up stages",
+      conditional: {
+        href: "select-methods-sift-stages"
+      }
+    }
+  ]
+}) }}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Set-up Sift stages",
+  href: "select-methods-sift-stages",
+  classes: "govuk-button--secondary"
+}) }}
+
+</div>
+
+
+
+
+
+    </form>
+
+{% endblock %}
