@@ -33,6 +33,42 @@ Select methods for interview – {{ serviceName }} – GOV.UK Prototype Kit
   <h3 class="govuk-heading-m govuk-!-margin-top-6" style="padding-bottom:20px;border-bottom:1px solid grey">1. Seeing the big picture</h3>
 
   {{ govukCheckboxes({
+    name: "SelectMethods"+[loop.index]+"sift",
+    id: "SelectMethods"+[loop.index]+"sift",
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--m govuk-body govuk-!-font-weight-regular"
+      }
+    },
+    items: [
+    {
+      checked: checked("SelectMethods"+[loop.index]+"sift",'Interview question(s)'),
+      value: "Interview question(s)",
+      text: "Interview question(s)"
+    },
+    {
+      checked: checked("SelectMethods"+[loop.index]+"sift",'Portfolio'),
+      value: "Portfolio",
+      text: "Portfolio"
+    },
+    {
+      checked: checked("SelectMethods"+[loop.index]+"sift",'Presentation'),
+      value: "Presentation",
+      text: "Presentation"
+    },
+    {
+      checked: checked("SelectMethods"+[loop.index]+"sift",'Exercise'),
+      value: "Exercise",
+      text: "Exercise"
+    }
+    ]
+  }) }}
+
+  <h3 class="govuk-heading-m govuk-!-margin-top-6" style="padding-bottom:20px;border-bottom:1px solid grey">2. Changing and improving</h3>
+
+  {{ govukCheckboxes({
     name: "strSelectMethods"+[loop.index]+"sift",
     id: "strSelectMethods"+[loop.index]+"sift",
     fieldset: {
@@ -66,6 +102,41 @@ Select methods for interview – {{ serviceName }} – GOV.UK Prototype Kit
     ]
   }) }}
 
+  <h3 class="govuk-heading-m govuk-!-margin-top-6" style="padding-bottom:20px;border-bottom:1px solid grey">3. Managing a quality service</h3>
+
+  {{ govukCheckboxes({
+    name: "srSelectMethods"+[loop.index]+"sift",
+    id: "strSelectMethods"+[loop.index]+"sift",
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--m govuk-body govuk-!-font-weight-regular"
+      }
+    },
+    items: [
+    {
+      checked: checked("srSelectMethods"+[loop.index]+"sift",'Interview question(s)'),
+      value: "Interview question(s)",
+      text: "Interview question(s)"
+    },
+    {
+      checked: checked("srSelectMethods"+[loop.index]+"sift",'Portfolio'),
+      value: "Portfolio",
+      text: "Portfolio"
+    },
+    {
+      checked: checked("srSelectMethods"+[loop.index]+"sift",'Presentation'),
+      value: "Presentation",
+      text: "Presentation"
+    },
+    {
+      checked: checked("srSelectMethods"+[loop.index]+"sift",'Exercise'),
+      value: "Exercise",
+      text: "Exercise"
+    }
+    ]
+  }) }}
 
       </div>
 
