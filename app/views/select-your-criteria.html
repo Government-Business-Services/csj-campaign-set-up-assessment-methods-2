@@ -18,8 +18,11 @@ Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-three-quarters">
     <h1 class="govuk-heading-xl">
-      Select your criteria
+      Choose the success profile element you will assess at sift and interview
     </h1>
+
+    <p class="govuk-body-l">When choosing assessment methods, you should focus on what you need candidates to do in the job role.</p>
+
 
 {% if data['criteria-you-want'].length > 0 %}
 {% for items in data['criteria-you-want'] | slice(1) %}
@@ -32,6 +35,8 @@ Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
 {% include 'skills.html' %}
 {% elif item == "Strengths" %}
 {% include 'strengths.html' %}
+{% elif item == "Abilities" %}
+{% include 'abilities.html' %}
 
 {% endif %}
 {% endfor%}{% endfor%}
@@ -59,7 +64,7 @@ Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
 
 
 
-    <a href="#" onclick="checkRadio()">Link</a>
+
 
     <script>
       function checkRadio() {

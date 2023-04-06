@@ -2,7 +2,7 @@ function getVals(div) {
 
   var new = siftArray;
   var tmp = window.sessionStorage.getItem("cheese")
-  const target = document.getElementById("siftTarget").innerHTML = "sd";
+  const target = document.getElementById(div).innerHTML = tmp;
   target.innerHTML = "dsfsd"+tmp;
 
   // <script>

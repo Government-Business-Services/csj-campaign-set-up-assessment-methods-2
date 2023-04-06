@@ -15,20 +15,25 @@ What essential criteria do you want – {{ serviceName }} – GOV.UK Prototype K
 {% block content %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-three-quarters">
-
+    <div class="govuk-grid-column-full">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-three-quarters">
       <h1 class="govuk-heading-xl">
-        What essential criteria do you want?
+        Select the success profile elements you will assess at sift and interview
       </h1>
       <form class="form" action="select-your-criteria" method="post">
 
-        <p class="govuk-body-m">We recommend that you think of your essential criteria as different aspects that your ideal candidate should bring to be successful in the role (we follow the Civil Service Success Profile framework).</p>
+        <p class="govuk-body-l">Success profiles are characteristics broken down into 5 elements to help you find the right candidate for your job role.</p>
+        <p class="govuk-body-m">You should focus on what you need candidates to do in the job role.</p>
 
         {% set choices = [
-        ['Behaviours','The actions and activities that people do which result in effective performance in a job'],
-        ['Experience','The knowledge or mastery of an activity or subject gained through involvement in or exposure to it'],
-        ['Skills','The demonstration of specific professional skills, knowledge or qualifications'],
-        ['Strengths','The things we do regularly, do well and that motivate us'] ] %}
+        ['Behaviours','The actions and activities that people do which result in effective performance in a job.'],
+        ['Strengths','Strengths are a great way for candidates to show their potential when they do not have a lot of work experience.'],
+        ['Experience','The knowledge or mastery of an activity or subject gained through involvement in or exposure to it.'],
+        ['Skills','Use skills to assess hard or technical skills. Whether you need a technical skill like IT skills or hard skills like project management.'],
+        ['Abilities','You should use abilities to assess a candidate for their potential to perform to the required standard.'] ] %}
+
+
 
 
         {% for choice, description in choices %}

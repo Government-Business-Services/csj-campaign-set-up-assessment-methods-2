@@ -13,9 +13,9 @@ Selection criteria summary – {{ serviceName }} – GOV.UK Prototype Kit
 
 {% block content %}
 
-<form action="about-assessment-methods" method="post" novalidate>
+<form action="select-criteria-stage" method="post" novalidate>
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds-from-desktop">
+    <div class="govuk-grid-column-three-quarters">
 
       <h1 class="govuk-heading-xl">
         Selection criteria summary
@@ -224,6 +224,12 @@ Selection criteria summary – {{ serviceName }} – GOV.UK Prototype Kit
 
       {{ govukButton({
         text: "Continue"
+      }) }}
+
+      {{ govukButton({
+        text: "Add another element",
+        href: "what-essential-criteria-do-you-want",
+        classes: "govuk-button--secondary"
       }) }}
 
     </form>
