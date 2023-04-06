@@ -1,0 +1,135 @@
+{% if data['criteria-behaviours'].length > 0 %}
+
+{% if (data['behaviours-crit1stage'].length > 0) and (data['behaviours-crit1stage'] === "sift") or (data['behaviours-crit1stage'].length > 0) and (data['behaviours-crit1stage'] === "both") %}
+{% if (data['behaviours-crit2stage'].length > 0) and (data['behaviours-crit2stage'] === "sift") or (data['behaviours-crit2stage'].length > 0) and (data['behaviours-crit2stage'] === "both") %}
+{% if (data['behaviours-crit3stage'].length > 0) and (data['behaviours-crit3stage'] === "sift") or (data['behaviours-crit3stage'].length > 0) and (data['behaviours-crit3stage'] === "both") %}
+{% if (data['behaviours-crit4stage'].length > 0) and (data['behaviours-crit4stage'] === "sift") or (data['behaviours-crit4stage'].length > 0) and (data['behaviours-crit4stage'] === "both") %}
+{% if (data['behaviours-crit5stage'].length > 0) and (data['behaviours-crit5stage'] === "sift") or (data['behaviours-crit5stage'].length > 0) and (data['behaviours-crit5stage'] === "both") %}
+{% if (data['behaviours-crit6stage'].length > 0) and (data['behaviours-crit6stage'] === "sift") or (data['behaviours-crit6stage'].length > 0) and (data['behaviours-crit6stage'] === "both") %}
+{% if (data['behaviours-crit7stage'].length > 0) and (data['behaviours-crit7stage'] === "sift") or (data['behaviours-crit7stage'].length > 0) and (data['behaviours-crit7stage'] === "both") %}
+{% if (data['behaviours-crit8stage'].length > 0) and (data['behaviours-crit8stage'] === "sift") or (data['behaviours-crit8stage'].length > 0) and (data['behaviours-crit8stage'] === "both") %}
+
+
+
+
+
+{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}
+
+{% if (data['criteria-experience-1'].length > 0) and (data['criteria-experience-2'].length > 0) and (data['criteria-experience-3'].length > 0) %}
+
+
+{% endif %}
+
+{% if (data['criteria-skills-1'].length > 0) and (data['criteria-skills-2'].length > 0) and (data['criteria-skills-3'].length > 0) %}
+
+
+{% endif %}
+
+{% if data['criteria-strength'].length > 0 %}
+
+
+
+{% endif %}
+
+
+{% set behavioursCritSiftArr = [] %}
+{% if (data['behaviours-crit1stage'].length > 0 and data['behaviours-crit1stage'] === "sift") or (data['behaviours-crit1stage'].length > 0 and data['behaviours-crit1stage'] === "both") %}
+{% set behavioursCritSiftArr = (behavioursCritSiftArr.push(data['criteria-behaviours']), behavioursCritSiftArr) %}
+{% else %}
+{% endif %}
+{% endif %}
+
+{% if (data['behaviours-crit2stage'].length > 0 and data['behaviours-crit2stage'] === "sift") or (data['behaviours-crit2stage'].length > 0 and data['behaviours-crit2stage'] === "both") %}
+{% set behavioursCritSiftArr = data['criteria-behaviours'] %}
+{% else %}
+{% endif %}
+
+{% if (data['behaviours-crit3stage'].length > 0 and data['behaviours-crit3stage'] === "sift") or (data['behaviours-crit3stage'].length > 0 and data['behaviours-crit3stage'] === "both") %}
+{% set behavioursCritSiftArr = data['criteria-behaviours'] %}
+{% else %}
+{% endif %}
+
+{% if (data['behaviours-crit4stage'].length > 0 and data['behaviours-crit4stage'] === "sift") or (data['behaviours-crit4stage'].length > 0 and data['behaviours-crit4stage'] === "both") %}
+{% set behavioursCritSiftArr = data['criteria-behaviours'] %}
+{% else %}
+{% endif %}
+
+{% if (data['behaviours-crit5stage'].length > 0 and data['behaviours-crit5stage'] === "sift") or (data['behaviours-crit5stage'].length > 0 and data['behaviours-crit5stage'] === "both") %}
+{% set behavioursCritSiftArr = data['criteria-behaviours'] %}
+{% else %}
+{% endif %}
+
+{% if (data['behaviours-crit6stage'].length > 0 and data['behaviours-crit6stage'] === "sift") or (data['behaviours-crit6stage'].length > 0 and data['behaviours-crit6stage'] === "both") %}
+{% set behavioursCritSiftArr = data['criteria-behaviours']%}
+{% else %}
+{% endif %}
+
+{% if (data['behaviours-crit7stage'].length > 0 and data['behaviours-crit7stage'] === "sift") or (data['behaviours-crit7stage'].length > 0 and data['behaviours-crit7stage'] === "both") %}
+{% set behavioursCritSiftArr = data['criteria-behaviours'] %}
+{% else %}
+{% endif %}
+
+{% if (data['behaviours-crit8stage'].length > 0 and data['behaviours-crit8stage'] === "sift") or (data['behaviours-crit8stage'].length > 0 and data['behaviours-crit8stage'] === "both") %}
+{% set behavioursCritSiftArr = data['criteria-behaviours'] %}
+{% else %}
+{% endif %}
+
+
+
+
+{% set criteriaExpSiftArr = [] %}
+
+{% if (data['criteria-exp1stage'].length > 0 and data['criteria-exp1stage'] === "sift") or (data['criteria-exp1stage'].length > 0 and data['criteria-exp1stage'] === "both") %}
+{% set criteriaExpSiftArr = (criteriaExpSiftArr.push(data['criteria-exp-1']), criteriaExpSiftArr) %}
+{% else %}
+{% endif %}
+
+{% if (data['criteria-exp2stage'].length > 0 and data['criteria-exp2stage'] === "sift") or (data['criteria-exp2stage'].length > 0 and data['criteria-exp2stage'] === "both") %}
+{% set criteriaExpSiftArr = (criteriaExpSiftArr.push(data['criteria-exp-2']), criteriaExpSiftArr) %}
+{% else %}
+{% endif %}
+
+{% if (data['criteria-exp3stage'].length > 0 and data['criteria-exp3stage'] === "sift") or (data['criteria-exp3stage'].length > 0 and data['criteria-exp3stage'] === "both") %}
+{% set criteriaExpSiftArr = (criteriaExpSiftArr.push(data['criteria-exp-3']), criteriaExpSiftArr) %}
+{% else %}
+{% endif %}
+
+
+{% set criteriaSkillsSiftArr = [] %}
+
+{% if (data['criteria-skills1stage'].length > 0 and data['criteria-skills1stage'] === "sift") or (data['criteria-skills1stage'].length > 0 and data['criteria-skills1stage'] === "both") %}
+{% set criteriaSkillsSiftArr = (criteriaSkillsSiftArr.push(data['criteria-skills-1']), criteriaSkillsSiftArr) %}
+{% else %}
+{% endif %}
+
+{% if (data['criteria-skills2stage'].length > 0 and data['criteria-skills2stage'] === "sift") or (data['criteria-skills2stage'].length > 0 and data['criteria-skills2stage'] === "both") %}
+{% set criteriaSkillsSiftArr = (criteriaSkillsSiftArr.push(data['criteria-skills-2']), criteriaSkillsSiftArr) %}
+{% else %}
+{% endif %}
+
+{% if (data['criteria-skills3stage'].length > 0 and data['criteria-skills3stage'] === "sift") or (data['criteria-skills3stage'].length > 0 and data['criteria-skills3stage'] === "both") %}
+{% set criteriaSkillsSiftArr = (criteriaSkillsSiftArr.push(data['criteria-skills-3']), criteriaSkillsSiftArr) %}
+{% else %}
+{% endif %}
+
+
+{% if (data['strength-crit1stage'].length > 0 and data['strength-crit1stage'] === "sift") or (data['strength-crit1stage'].length > 0 and data['strength-crit1stage'] === "both") %}
+{% set criteriaStrSiftArr = data['criteria-strength'] %}
+{% else %}
+{% endif %}
+
+
+{% if (data['strength-crit2stage'].length > 0 and data['strength-crit2stage'] === "sift") or (data['strength-crit2stage'].length > 0 and data['strength-crit2stage'] === "both") %}
+{% set criteriaStrSiftArr = data['criteria-strength'] %}
+{% else %}
+{% endif %}
+
+{% if (data['strength-crit3stage'].length > 0 and data['strength-crit3stage'] === "sift") or (data['strength-crit3stage'].length > 0 and data['strength-crit3stage'] === "both") %}
+{% set criteriaStrSiftArr = data['criteria-strength'] %}
+{% else %}
+{% endif %}
+
+{% if (data['strength-crit4stage'].length > 0 and data['strength-crit4stage'] === "sift") or (data['strength-crit4stage'].length > 0 and data['strength-crit4stage'] === "both") %}
+{% set criteriaStrSiftArr = data['criteria-strength'] %}
+{% else %}
+{% endif %}
